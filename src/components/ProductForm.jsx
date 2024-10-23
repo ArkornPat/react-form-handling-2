@@ -1,4 +1,10 @@
+import { useState } from "react";
+
 function ProductForm() {
+  const [greetingInputName,setGreetingInputName] = useState("")
+  const [greetingInputImgUrl,setGreetingInputImgUrl] = useState("")
+  const [greetingInputPrice,setGreetingInputPrice] = useState("")
+  const [greetingInputDst,setGreetingInputDst] = useState("")
   return (
     <form className="post-form">
       <h1>Create Product Form</h1>
@@ -10,7 +16,7 @@ function ProductForm() {
             name="name"
             type="text"
             placeholder="Enter name here"
-            onChange={() => {}}
+            onChange={(even) => {setGreetingInputName(even.target.value)}}
           />
         </label>
       </div>
@@ -22,7 +28,7 @@ function ProductForm() {
             name="image"
             type="text"
             placeholder="Enter image url here"
-            onChange={() => {}}
+            onChange={(even) => {setGreetingInputImgUrl(even.target.value)}}
           />
         </label>
       </div>
@@ -34,7 +40,7 @@ function ProductForm() {
             name="price"
             type="number"
             placeholder="Enter price here"
-            onChange={() => {}}
+            onChange={(even) => {setGreetingInputPrice(even.target.value)}}
           />
         </label>
       </div>
@@ -46,14 +52,14 @@ function ProductForm() {
             name="description"
             type="text"
             placeholder="Enter description here"
-            onChange={() => {}}
+            onChange={(even) => {setGreetingInputDst(even.target.value)}}
             rows={4}
             cols={30}
           />
         </label>
       </div>
       <div className="form-actions">
-        <button type="submit">Create</button>
+        <button type="submit" onClick={() =>alert(JSON.stringify(`name: ${greetingInputName}\n price: ${greetingInputPrice}\n image: ${greetingInputImgUrl}\n description: ${greetingInputDst}`)) }>Create</button>
       </div>
     </form>
   );
