@@ -6,7 +6,8 @@ function ProductForm() {
   const [productPrice, setProductPrice] = useState("");
   const [productDescription, setProductDescription] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     const data = {
       name: productName,
       price: productPrice,
